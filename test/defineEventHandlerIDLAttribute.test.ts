@@ -60,13 +60,17 @@ test("called before addEventListener when added before", () => {
 });
 
 // TODO: Fix this test case
-test.skip("reserves spot in event listener list even when function changes", () => {
-  let i = 0;
-  let j = 0;
-  t.ontest = () => (j = i++);
-  t.addEventListener("test", () => i++);
-  t.ontest = () => (j = i++);
-  t.dispatchEvent(new Event("test"));
-  assert.equal(i, 2);
-  assert.equal(j, 0);
-});
+test(
+  "reserves spot in event listener list even when function changes",
+  { skip: true },
+  () => {
+    let i = 0;
+    let j = 0;
+    t.ontest = () => (j = i++);
+    t.addEventListener("test", () => i++);
+    t.ontest = () => (j = i++);
+    t.dispatchEvent(new Event("test"));
+    assert.equal(i, 2);
+    assert.equal(j, 0);
+  }
+);
