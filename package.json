@@ -1,0 +1,35 @@
+{
+  "name": "@jcbhmr/html-event-handler-attributes",
+  "version": "1.0.0",
+  "description": "📗 Define your own spec-compliant .onevent attributes",
+  "keywords": [
+  ],
+  "homepage": "https://jcbhmr.github.io/html-event-handler-attributes",
+  "bugs": "https://github.com/jcbhmr/html-event-handler-attributes/issues",
+  "repository": "github:jcbhmr/html-event-handler-attributes",
+  "license": "MIT",
+  "author": "Jacob Hummer <jcbhmr@outlook.com> (https://jcbhmr.me/)",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*.js": "./dist/*.js",
+    "./internal/*": null
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "tsc",
+    "start": "tsx --test --watch test/**.test.ts",
+    "pretest": "prettier --ignore-path .gitignore -w .",
+    "test": "tsc --noEmit && tsx --test test/**.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-jsdoc": "^0.4.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}
