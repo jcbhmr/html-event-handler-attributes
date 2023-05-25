@@ -2,8 +2,7 @@
   "name": "@jcbhmr/html-event-handler-attributes",
   "version": "1.0.0",
   "description": "📗 Define your own spec-compliant .onevent attributes",
-  "keywords": [
-  ],
+  "keywords": [],
   "homepage": "https://jcbhmr.github.io/html-event-handler-attributes",
   "bugs": "https://github.com/jcbhmr/html-event-handler-attributes/issues",
   "repository": "github:jcbhmr/html-event-handler-attributes",
