@@ -59,7 +59,7 @@ test("called before addEventListener when added before", () => {
   assert.equal(j, 0);
 });
 
-// TODO: Fix this test case
+// TODO: Fix implementation so that it passes this
 test(
   "reserves spot in event listener list even when function changes",
   { skip: true },
