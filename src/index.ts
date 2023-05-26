@@ -1,1 +1,10 @@
+export { default as activateAnEventHandler } from "./activateAnEventHandler.js";
+export { default as deactivateAnEventHandler } from "./deactivateAnEventHandler.js";
 export { default as defineEventHandlerIDLAttribute } from "./defineEventHandlerIDLAttribute.js";
+export { default as determineTheTargetOfAnEventHandler } from "./determineTheTargetOfAnEventHandler.js";
+export type { default as EventHandler } from "./EventHandler.js";
+export type { default as EventHandlerName } from "./EventHandlerName.js";
+export { default as EventTargetMixin } from "./EventTargetMixin.js";
+export { default as getTheCurrentValueOfTheEventHandler } from "./getTheCurrentValueOfTheEventHandler.js";
+export { default as InternalRawUncompiledHandler } from "./InternalRawUncompiledHandler.js";
+export { default as theEventHandlerProcessingAlgorithm } from "./theEventHandlerProcessingAlgorithm.js";

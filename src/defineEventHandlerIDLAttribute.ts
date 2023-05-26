@@ -1,13 +1,18 @@
 import EventTargetMixin, { eventHandlerMap } from "./EventTargetMixin.js";
+import type EventHandlerName from "./EventHandlerName.js";
 import activateAnEventHandler from "./activateAnEventHandler.js";
 import deactivateAnEventHandler from "./deactivateAnEventHandler.js";
 import determineTheTargetOfAnEventHandler from "./determineTheTargetOfAnEventHandler.js";
 import getTheCurrentValueOfTheEventHandler from "./getTheCurrentValueOfTheEventHandler.js";
 
+function isObject(o: unknown): o is object {
+  return typeof o === "object" ? o !== null : typeof o === "function";
+}
+
 const seen = new WeakSet<EventTarget>();
 
 function createEventHandlerIDLAttributeDescriptor(
-  name: `on${string}`,
+  name: EventHandlerName,
   type: string
 ): PropertyDescriptor {
   function get(this: EventTarget): EventListener | null {
@@ -34,6 +39,10 @@ function createEventHandlerIDLAttributeDescriptor(
       EventTargetMixin.call(this);
     }
     seen.add(this);
+
+    if (!isObject(value)) {
+      value = null;
+    }
 
     // The setter of an event handler IDL attribute with name name, when called, must run these steps:
 
@@ -77,7 +86,7 @@ function createEventHandlerIDLAttributeDescriptor(
  */
 function defineEventHandlerIDLAttribute<T extends EventTarget>(
   target: T,
-  name: `on${string}`,
+  name: EventHandlerName,
   type: string
 ): T {
   const d = createEventHandlerIDLAttributeDescriptor(name, type);

@@ -1,4 +1,5 @@
 import { getType } from "is-what";
+import type EventHandlerName from "./EventHandlerName.js";
 import getTheCurrentValueOfTheEventHandler from "./getTheCurrentValueOfTheEventHandler.js";
 
 function isErrorEvent(event: Event): event is ErrorEvent {
@@ -10,7 +11,7 @@ function isBeforeUnloadEvent(event: Event): event is BeforeUnloadEvent {
 
 function theEventHandlerProcessingAlgorithm(
   eventTarget: EventTarget,
-  name: `on${string}`,
+  name: EventHandlerName,
   event: Event
 ): void {
   // The event handler processing algorithm for an EventTarget object eventTarget, a string name representing the name of an event handler, and an Event object event is as follows:

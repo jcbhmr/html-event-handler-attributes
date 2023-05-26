@@ -1,6 +1,7 @@
 import { eventHandlerMap } from "./EventTargetMixin.js";
 // @ts-ignore
 import isInstanceOf from "is-instance-of";
+import InternalRawUncompiledHandler from "./InternalRawUncompiledHandler.js";
 
 function isWindowObject(x: unknown): x is Window {
   return x === globalThis || isInstanceOf(x, "Window");
@@ -22,7 +23,11 @@ function getTheCurrentValueOfTheEventHandler(
   const eventHandler = handlerMap[name];
 
   // 3. If eventHandler's value is an internal raw uncompiled handler, then:
-  if (Array.isArray(eventHandler.value)) {
+  if (
+    InternalRawUncompiledHandler.isInternalRawUncompiledHandler(
+      eventHandler.value
+    )
+  ) {
     // 3. Let body be the uncompiled script body in eventHandler's value.
     // 4. Let location be the location where the script body originated, as
     //    given by eventHandler's value.

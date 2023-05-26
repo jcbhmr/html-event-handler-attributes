@@ -1,10 +1,10 @@
-import EventHandler from "./EventHandler.js";
+import type EventHandlerName from "./EventHandlerName.js";
 import { eventHandlerMap } from "./EventTargetMixin.js";
 import theEventHandlerProcessingAlgorithm from "./theEventHandlerProcessingAlgorithm.js";
 
 export default function activateAnEventHandler(
   eventTarget: EventTarget,
-  name: `on${string}`,
+  name: EventHandlerName,
   type: string
 ): void {
   // To activate an event handler given an EventTarget object eventTarget and a

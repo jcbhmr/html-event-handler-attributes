@@ -1,8 +1,9 @@
+import type EventHandlerName from "./EventHandlerName.js";
 import { eventHandlerMap } from "./EventTargetMixin.js";
 
 export default function deactivateAnEventHandler(
   eventTarget: EventTarget,
-  name: `on${string}`,
+  name: EventHandlerName,
   type: string
 ): void {
   // To deactivate an event handler given an EventTarget object eventTarget and a string name that is the name of an event handler, run these steps:
